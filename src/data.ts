@@ -16,7 +16,7 @@ const departments = [
 ];
 
 export const employees: Employee[] = Array.from(
-  { length: 10_000 },
+  { length: 100_000 },
   (_, index) => ({
     id: index + 1,
     name: `Employee ${index + 1}`,
