@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { employees } from "./data";
 import type { Employee } from "./data";
 
@@ -12,9 +12,10 @@ function App() {
   const [ascending, setAscending] = useState(true);
 
   // Baseline: filter the complete dataset on every render.
-  const filteredEmployees = employees.filter((employee) => {
-    const query = search.toLowerCase();
+  const filteredEmployees = useMemo(() => {
+  const query = search.trim().toLowerCase();
 
+  return employees.filter((employee) => {
     const matchesSearch =
       employee.name.toLowerCase().includes(query) ||
       employee.email.toLowerCase().includes(query) ||
@@ -26,21 +27,25 @@ function App() {
 
     return matchesSearch && matchesDepartment;
   });
+}, [search, department]);
 
   // Baseline: sort the filtered data on every render.
-  const sortedEmployees = [...filteredEmployees].sort(
+  const sortedEmployees = useMemo(() => {
+  return [...filteredEmployees].sort(
     (a: Employee, b: Employee) => {
       const first = a[sortField];
       const second = b[sortField];
 
       const result =
-        typeof first === "number" && typeof second === "number"
+        typeof first === "number" &&
+        typeof second === "number"
           ? first - second
           : String(first).localeCompare(String(second));
 
       return ascending ? result : -result;
     }
   );
+}, [filteredEmployees, sortField, ascending]);
 
   function handleSort(field: SortField) {
     if (field === sortField) {
