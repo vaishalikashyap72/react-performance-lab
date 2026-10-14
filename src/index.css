@@ -1,0 +1,189 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6fb;
+  color: #202638;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #6658d3;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: clamp(26px, 4vw, 36px);
+}
+
+.subtitle,
+.table-note,
+footer {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.baseline-badge {
+  flex-shrink: 0;
+  padding: 9px 13px;
+  border-radius: 20px;
+  background: #fff0d5;
+  color: #875800;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card,
+.table-card {
+  background: white;
+  border: 1px solid #e7eaf1;
+  border-radius: 14px;
+}
+
+.stat-card {
+  padding: 22px;
+}
+
+.stat-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+.table-card {
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+}
+
+.toolbar input,
+.toolbar select {
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #dce1eb;
+  border-radius: 8px;
+  background: white;
+  color: #202638;
+}
+
+.toolbar input {
+  flex: 1;
+}
+
+.table-note {
+  margin: 0;
+  padding: 0 20px 16px;
+}
+
+.table-scroll {
+  max-width: 100%;
+  overflow: auto;
+  max-height: 70vh;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f8f9fc;
+}
+
+th,
+td {
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid #edf0f5;
+}
+
+th button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #353d50;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background: #f6f5ff;
+}
+
+.empty-state {
+  padding: 32px;
+  text-align: center;
+  color: #6b7280;
+}
+
+footer {
+  padding: 22px 0;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .app {
+    padding: 16px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    flex-direction: column;
+  }
+}
